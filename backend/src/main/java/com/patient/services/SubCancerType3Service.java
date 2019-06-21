@@ -47,6 +47,7 @@ public class SubCancerType3Service {
                 .id(subCancerType3.getId() !=0? subCancerType3.getId() :subCancerType3Repository.getMaxId() +1)
                 .subCancerType2(subCancerType2Repository.findOne(subCancerType3.getId()))
                 .title(subCancerType3.getTitle())
+                .subcancertypeid(subCancerType3.getSubcancertypeid())
                 .id(subCancerType3.getId())
                 .build();
         return subCancerType3Repository.save(subCancerType3new);

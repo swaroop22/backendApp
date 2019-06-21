@@ -21,7 +21,7 @@ public class SubCancerType3 {
     private String title;
 
     @Column(name = "subcancer_type2_id")
-    private int SubCancerTypeId2;
+    private int subcancertypeid;
 
     @ManyToOne
     @JoinColumn(name = "id")

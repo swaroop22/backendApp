@@ -52,7 +52,7 @@ public class RegimenDetailController {
     @RequestMapping(value = "/regimenDetailController/{id}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
     public RegimenDetail UpdateRegimenDetail(@RequestBody String payLoad)
             throws JsonParseException, JsonMappingException, IOException {
-        return regimenDetailService.addOrUpdateRegimenDetail(payLoad);
+        return regimenDetailService.updateRegimenDetail(payLoad);
     }
     /**
      * This method is used to delete the patient.

@@ -10,7 +10,7 @@ import java.util.List;
 @Repository
 public interface SubCancerType2Repository  extends JpaRepository<SubCancerType2, Integer> {
 
-    @Query("Select a from SubCancerType2 a where a.SubCancerTypeId1 = :id")
+    @Query("Select a from SubCancerType2 a where a.subcancertypeid = :id")
     List<SubCancerType2> findSubCancerType2ById(@Param("id") int id);
 
     @Query(value = "select MAX(pk) from subcancertype2", nativeQuery = true)

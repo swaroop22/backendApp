@@ -65,9 +65,39 @@ public class RegimenDetailService {
                 .subCancerType3(subCancerType3)
                 .subCancerType2(subCancerType2)
                 .subCancerType1(subCancerType1)
+                .SubCancerTypeId3(regimenDetail1.getId2())
                 .build();
         return regimenDetailRepository.save(regimenDetail);
     }
+
+    public RegimenDetail updateRegimenDetail(String payLoad) throws JsonParseException, JsonMappingException, IOException {
+        RegimenDetail regimenDetail1 = objectMapper.readValue(payLoad, RegimenDetail.class);
+        RegimenDetail regimenDetail = regimenDetailRepository.findOne((long) regimenDetail1.getSubCancerTypeId3());
+
+        if(regimenDetail.getBrandNames() != regimenDetail1.getBrandNames()
+           | regimenDetail.getDispName() != regimenDetail1.getDispName()
+           |  regimenDetail.getDosageModifications() != regimenDetail1.getDosageModifications()
+           | regimenDetail.getEmetogenicPotential() != regimenDetail.getDosageModifications()
+           | regimenDetail.getSchedule() != regimenDetail1.getSchedule()
+                | regimenDetail.getReference() != regimenDetail1.getReference()){
+
+            regimenDetail.setBrandNames(regimenDetail1.getBrandNames());
+            regimenDetail.setDispName(regimenDetail1.getDispName());
+            regimenDetail.setDosageModifications(regimenDetail1.getDosageModifications());
+            regimenDetail.setReference(regimenDetail1.getReference());
+            regimenDetail.setEmetogenicPotential(regimenDetail1.getEmetogenicPotential());
+            regimenDetail.setSchedule(regimenDetail1.getSchedule());
+            return regimenDetailRepository.save(regimenDetail);
+        }
+
+
+
+
+
+
+        return regimenDetail;
+    }
+
 
     public  List<RegimenDetail> getRegimenDetailById(int id) { return
             regimenDetailRepository.findRegimenDetailById(id);}

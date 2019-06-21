@@ -21,7 +21,7 @@ public class SubCancerType2 implements Serializable {
     private String title;
 
     @Column(name = "subcancer_type1_id")
-    private int SubCancerTypeId1;
+    private int subcancertypeid;
 
     @ManyToOne
     @JoinColumn(name = "id")

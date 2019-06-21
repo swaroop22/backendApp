@@ -42,7 +42,7 @@ public class CancerTypeController {
     @RequestMapping(value = "/cancerTypeControllerById/edit", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
     public CancerType UpdateRegimenDetail(@RequestBody String payLoad)
             throws JsonParseException, JsonMappingException, IOException {
-        return cancerTypeService.addOrUpdateCancerType(payLoad);
+        return cancerTypeService.updateCancerType(payLoad);
     }
     /**
      * This method is used to delete the patient.

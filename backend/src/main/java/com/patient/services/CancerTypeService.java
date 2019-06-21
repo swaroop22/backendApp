@@ -56,5 +56,23 @@ public class CancerTypeService {
         return cancerTypeRepository.save(cancerType);
     }
 
+    public  CancerType updateCancerType( String payLoad)  throws JsonParseException, JsonMappingException, IOException{
+        CancerType cancerType1 = objectMapper.readValue(payLoad, CancerType.class);
+        CancerType cancerType = cancerTypeRepository.findOne(cancerType1.getId());
+
+        if(cancerType.getId() != cancerType1.getId()
+                | cancerType.getPatienttypeid() != cancerType1.getPatienttypeid()
+                | cancerType.getTitle() != cancerType1.getTitle()){
+
+            cancerType.setId(cancerType1.getId());
+            cancerType.setTitle(cancerType1.getTitle());
+            cancerType.setPatienttypeid(cancerType1.getPatienttypeid());
+
+            return cancerTypeRepository.save(cancerType);
+        }
+        return cancerType;
+    }
+
+
 
 }

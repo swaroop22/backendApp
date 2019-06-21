@@ -46,8 +46,8 @@ public class SubCancerType1Service {
         SubCancerType1 subCancerType1 = objectMapper.readValue(payLoad, SubCancerType1.class);
         SubCancerType1 subCancerType = SubCancerType1.builder()
                 .id(subCancerType1.getId() != 0? subCancerType1.getId() :subCancerTypeRepository.getMaxId() + 1)
-                .CancerTypeId(subCancerType1.getCancerTypeId())
-                .cancerType(cancerTypeRepository.findOne(subCancerType1.getCancerTypeId()))
+                .subcancertypeid(subCancerType1.getSubcancertypeid())
+                .cancerType(cancerTypeRepository.findOne(subCancerType1.getSubcancertypeid()))
                 .title(subCancerType1.getTitle())
                 .build();
         return  subCancerTypeRepository.save(subCancerType);
